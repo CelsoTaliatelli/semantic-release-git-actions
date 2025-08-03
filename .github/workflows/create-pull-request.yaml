@@ -9,8 +9,12 @@ jobs:
   create_pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
 
       - name: Create Pull Request
         env:
