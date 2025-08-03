@@ -33,3 +33,5 @@ jobs:
               issue_number: result.data.number,
               labels: ['feature', 'automated pr']
             });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
