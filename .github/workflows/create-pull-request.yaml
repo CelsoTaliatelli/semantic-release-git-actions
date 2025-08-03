@@ -1,8 +1,9 @@
 name: Create Pull Request
 
 on:
-  repository_dispatch:
-    types: [create-pr]
+   push:
+    branches:
+      - feature/**
 
 
 jobs:
