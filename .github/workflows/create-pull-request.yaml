@@ -1,7 +1,9 @@
 name: Create PR with GitHub CLI
 
 on:
-  workflow_dispatch: # Manual trigger for demonstration
+  push:
+    branches:
+      - feature/* # Manual trigger for demonstration
 
 jobs:
   create-pr-cli:
