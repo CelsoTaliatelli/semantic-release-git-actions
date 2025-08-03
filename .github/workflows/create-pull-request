@@ -1,0 +1,31 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - feature/* # or your desired trigger branch
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Checkout the repository
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Required for pushing changes and creating PR
+
+      # Your steps to modify files or generate content that will be committed
+      # For example:
+      - name: Modify a file
+        run: echo "New content" >> test.txt
+
+      - name: Create Pull Request
+        uses: actions/create-pull-request@v6 # Use the action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automated: Add test.txt"
+          title: "Automated Pull Request: Add test.txt"
+          body: "This PR was created automatically by a GitHub Action."
+          branch: "automated-pr-branch" # New branch for the PR
+          base: "main" # Target branch for the PR
+          labels: "automated, documentation" # Optional labels
+          draft: false # Set to true for a draft PR
