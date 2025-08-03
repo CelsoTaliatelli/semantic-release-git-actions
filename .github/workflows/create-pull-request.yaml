@@ -1,31 +1,28 @@
-name: Create Pull Request
+name: Create PR with GitHub CLI
 
 on:
-  push:
-    branches:
-      - feature/* # or your desired trigger branch
+  workflow_dispatch: # Manual trigger for demonstration
 
 jobs:
-  create-pr:
+  create-pr-cli:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Checkout the repository
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Required for pushing changes and creating PR
+      - uses: actions/checkout@v4
 
-      # Your steps to modify files or generate content that will be committed
-      # For example:
-      - name: Modify a file
-        run: echo "New content" >> test.txt
+      # Your steps to modify files or generate content
+      - name: Add a new file
+        run: echo "Hello from CLI PR!" > cli_test.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cli_test.txt
+          git commit -m "Automated: Add cli_test.txt"
+          git push origin HEAD:automated-cli-branch
 
       - name: Create Pull Request
-        uses: actions/create-pull-request@v6 # Use the action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Automated: Add test.txt"
-          title: "Automated Pull Request: Add test.txt"
-          body: "This PR was created automatically by a GitHub Action."
-          branch: "automated-pr-branch" # New branch for the PR
-          base: "main" # Target branch for the PR
-          labels: "automated, documentation" # Optional labels
-          draft: false # Set to true for a draft PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --base main --head automated-cli-branch --title "Automated CLI PR" --body "Created via GitHub CLI in a workflow."
