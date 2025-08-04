@@ -3,6 +3,7 @@ name: Pull Request Action
 
 permissions:
   contents: write
+  issues: write
   checks: write
   actions: write
   packages: read
