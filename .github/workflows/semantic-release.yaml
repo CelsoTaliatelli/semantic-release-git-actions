@@ -41,4 +41,4 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print next version
         run: |
-            echo "Next version: ${{ steps.semantic.outputs.nextReleaseVersion }}"
+            echo "Next version: ${{ steps.semantic.outputs }}"
