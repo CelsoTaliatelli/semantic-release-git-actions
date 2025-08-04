@@ -65,7 +65,7 @@ jobs:
           script: |
             let result = await github.rest.repos.getBranch({
                 owner: context.repo.owner,
-                repo: context.repo.repo
+                repo: context.repo.repo,
                 branch: 'main'
             })
             const { repo, owner } = context.repo;
