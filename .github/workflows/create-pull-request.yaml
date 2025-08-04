@@ -26,10 +26,9 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
               title: '[Example] Simple demo',
-              owner: conext.repo.owner,
+              owner: context.repo.owner,
               repo: context.repo.repo,
               head: '${{ github.ref_name }}',
               state: "open",
