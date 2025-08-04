@@ -33,11 +33,11 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         id: semantic
         with:
-            semantic_version: 19
-            extra_plugin: |
-                @semantic-release/commit-analyzer
+            dry_run: true
+            #semantic_version: 19
+            #extra_plugin: |
+            #    @semantic-release/commit-analyzer
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: |
-                echo "Essa é a nova versao"
-                echo ${{ steps.semantic.outputs.new_release_version }}
+      - name: Print next version
+        run: echo "Next version: ${{ steps.semantic_release_info.outputs.nextReleaseVersion }}"
