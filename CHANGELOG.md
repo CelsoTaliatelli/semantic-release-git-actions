@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/CelsoTaliatelli/semantic-release-git-actions/compare/v1.2.0...v1.3.0) (2025-08-04)
+
+
+### Features
+
+* novo teste ([d257663](https://github.com/CelsoTaliatelli/semantic-release-git-actions/commit/d25766364baa9586426744142f9536308f745dac))
+
 # [1.2.0](https://github.com/CelsoTaliatelli/semantic-release-git-actions/compare/v1.1.0...v1.2.0) (2025-08-04)
 
 
