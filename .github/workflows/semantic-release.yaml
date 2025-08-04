@@ -63,10 +63,15 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            let result = await github.rest.repos.getBranch({
+                owner: context.repo.owner,
+                repo: context.repo.repo
+                branch: 'main'
+            })
             const { repo, owner } = context.repo;
-            const result = await github.rest.git.createRef({
-              owner: owner,
-              repo:  repo,
-              ref: "refs/heads/release-${{steps.semantic.outputs.new_release_version}}",
-              sha: result.data.commit.sha
+            result = await github.rest.git.createRef({
+                owner: owner,
+                repo:  repo,
+                ref: "refs/heads/release-${{steps.semantic.outputs.new_release_version}}",
+                sha: result.data.commit.sha
               });
