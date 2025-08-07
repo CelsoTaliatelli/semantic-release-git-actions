@@ -9,8 +9,7 @@ permissions:
   pull-requests: write
 
 on:
-  pull_request:
-    types: closed
+  push:
     branches:
         - dev
 
