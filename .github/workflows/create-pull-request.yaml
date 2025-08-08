@@ -36,7 +36,7 @@ jobs:
               state: "open"
             });
             console.log(owner);
-            if(list.data.length > 0){
+            if(listPR.data.length > 0){
               console.log('PR já existe para ${{github.ref_name}}');
             }else {
               const result = await github.rest.pulls.create({
