@@ -31,7 +31,7 @@ jobs:
             const listPR = await github.rest.pulls.list({
               owner: owner,
               repo: repo,
-              head: ${{github.ref_name}},
+              head: '${{github.ref_name}}',
               base: 'dev',
               state: "open"
             });
