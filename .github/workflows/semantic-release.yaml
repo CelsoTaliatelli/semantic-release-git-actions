@@ -57,6 +57,6 @@ jobs:
             result = await github.rest.git.createRef({
                 owner: owner,
                 repo:  repo,
-                ref: "refs/heads/release/0.0.1",
+                ref: "refs/heads/release/0.0.2",
                 sha: result.data.commit.sha
               });
