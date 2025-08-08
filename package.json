@@ -1,0 +1,20 @@
+{
+  "name": "semantic-release-git-actions",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://github.com/CelsoTaliatelli/semantic-release-git-actions#readme",
+  "bugs": {
+    "url": "https://github.com/CelsoTaliatelli/semantic-release-git-actions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CelsoTaliatelli/semantic-release-git-actions.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
