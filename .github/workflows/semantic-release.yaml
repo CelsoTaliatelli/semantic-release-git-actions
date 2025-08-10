@@ -32,9 +32,9 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Prepare prerelease semantic
-        if: github.ref != 'refs/heads/main'
-        run: mv .releaserc.prerelease.yaml .releaserc.yaml    
+      #- name: Prepare prerelease semantic
+        #if: github.ref != 'refs/heads/main'
+        #run: mv .releaserc.prerelease.yaml .releaserc.yaml    
       - name: Create Release
         uses: cycjimmy/semantic-release-action@v4
         id: semantic
