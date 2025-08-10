@@ -13,6 +13,7 @@ on:
     types: closed
     branches:
         - dev
+        - homolog
 
 
 jobs:
@@ -33,6 +34,7 @@ jobs:
           node-version: "lts/*"
     
       - name: Semantic release
+      - run: npm ci
         run: npx semantic-release --dry-run
         env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
