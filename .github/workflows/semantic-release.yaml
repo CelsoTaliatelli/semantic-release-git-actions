@@ -34,8 +34,7 @@ jobs:
           node-version: "lts/*"
     
       - name: Semantic release
-      - run: npm ci
-        run: npx semantic-release --dry-run
+        run: npm ci && npx semantic-release --dry-run
         env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
