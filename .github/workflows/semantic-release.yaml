@@ -9,11 +9,14 @@ permissions:
   pull-requests: write
 
 on:
-  pull_request:
-    types: closed
+  push:
     branches:
-        - dev
-        - homolog
+      - homolog
+  #pull_request:
+  #  types: closed
+  #  branches:
+  #      - dev
+  #      - homolog
 
 
 jobs:
@@ -34,7 +37,7 @@ jobs:
           node-version: "lts/*"
     
       - name: Semantic release
-        run: npm ci && npx semantic-release --dry-run
+        run: npm ci && npx semantic-release --dry-run --branchs homolog
         env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
