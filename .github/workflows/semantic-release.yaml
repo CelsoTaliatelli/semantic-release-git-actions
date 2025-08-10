@@ -40,7 +40,7 @@ jobs:
         id: semantic
         with:
             dry_run: true
-            branchs: homolog
+            branchs: dev
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print next version
