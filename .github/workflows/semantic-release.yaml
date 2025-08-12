@@ -41,7 +41,7 @@ jobs:
       - name: Install npm
         run: npm install
       - name: Semantic Release
-        run: npx semantic-release --branch next --no-ci --dry-run
+        run: npx semantic-release --dry-run
       - name: Print version
         run: |
             echo "Next version: ${{ steps.semantic.outputs.new_release_version }}"
