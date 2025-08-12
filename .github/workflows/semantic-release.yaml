@@ -25,6 +25,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+        env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       - name: Setup node
         uses: actions/setup-node@v3
