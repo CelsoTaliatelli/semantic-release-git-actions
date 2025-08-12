@@ -12,7 +12,7 @@ permissions:
 on:
   push:
     branches:
-      - feature/**
+      - feat/**
       
 jobs:
   create-pull-request:
@@ -39,7 +39,7 @@ jobs:
               console.log('PR já existe para ${{github.ref_name}}');
             }else {
               const result = await github.rest.pulls.create({
-                title: 'dev <- ${{github.ref_name}}',
+                title: 'feature/release <- ${{github.ref_name}}',
                 owner: owner,
                 repo:  repo,
                 head: '${{ github.ref_name }}',
