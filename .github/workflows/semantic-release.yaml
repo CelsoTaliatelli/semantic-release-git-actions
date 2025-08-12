@@ -26,13 +26,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
     
-      - uses: actions/setup-node@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
 
       - name: Prepare prerelease semantic
         id: semantic
-        uses: actions@setup-node@v4
+        uses: actions/setup-node@v4
         with:
           cache: 'npm'
       - name: Install npm
