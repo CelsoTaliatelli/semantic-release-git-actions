@@ -41,7 +41,7 @@ jobs:
       - name: Install npm
         run: npm install
       - name: Semantic Release
-        run: px -p @semantic-release/exec -p semantic-release semantic-release --dry-run --plugins "@semantic-release/commit-analyzer,@semantic-release/exec" --analyzeCommits @semantic-release/commit-analyzer --verifyRelease @semantic-release/exec --verifyReleaseCmd 'echo ${nextRelease.version} > nextRelease.txt' #npx semantic-release --dry-run
+        run: npx -p @semantic-release/exec -p semantic-release semantic-release --dry-run --plugins "@semantic-release/commit-analyzer,@semantic-release/exec" --analyzeCommits @semantic-release/commit-analyzer --verifyRelease @semantic-release/exec --verifyReleaseCmd 'echo ${nextRelease.version} > nextRelease.txt' #npx semantic-release --dry-run
       - name: Print version
         run: |
             echo "Next version: ${{ steps.semantic.outputs.new_release_version }}"
